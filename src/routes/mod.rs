@@ -3,11 +3,9 @@ use axum::{Router, http::HeaderValue, routing::get};
 use sqlx::MySqlPool;
 use tower_http::cors::{Any, CorsLayer};
 
-/// Configure all application routes
 pub fn configure_routes(pool: MySqlPool) -> Router {
-    // Configure CORS to allow requests from localhost:5173
     let cors = CorsLayer::new()
-        .allow_origin(HeaderValue::from_static("http://localhost:5173"))
+        .allow_origin(HeaderValue::from_static("http://localhost:3001"))
         .allow_methods(Any)
         .allow_headers(Any);
 
