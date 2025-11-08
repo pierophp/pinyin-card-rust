@@ -4,7 +4,7 @@ use axum::{Json, response::IntoResponse};
 /// Handler for the root endpoint
 pub async fn hello_world() -> impl IntoResponse {
     Json(HelloResponse {
-        message: "Hello, Piero!".to_string(),
+        message: "Hello, World!".to_string(),
     })
 }
 
@@ -12,6 +12,6 @@ pub async fn hello_world() -> impl IntoResponse {
 pub async fn health_check() -> impl IntoResponse {
     Json(serde_json::json!({
         "status": "healthy",
-        "timestamp": chrono::Utc::now().to_rfc3339()
+        "timestamp": chrono::Local::now().to_rfc3339(),
     }))
 }
